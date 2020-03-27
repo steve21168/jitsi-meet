@@ -158,7 +158,6 @@ class WelcomePage extends AbstractWelcomePage {
      */
     render() {
         const { t } = this.props;
-        const { APP_NAME } = interfaceConfig;
         const showAdditionalContent = this._shouldShowAdditionalContent();
         const showAdditionalToolbarContent = this._shouldShowAdditionalToolbarContent();
         const showResponsiveText = this._shouldShowResponsiveText();
@@ -185,11 +184,21 @@ class WelcomePage extends AbstractWelcomePage {
                     <div className = 'header-image' />
                     <div className = 'header-text'>
                         <h1 className = 'header-text-title'>
-                            { t('welcomepage.title') }
+                          Welcome to VoIPX Meet!
                         </h1>
-                        <p className = 'header-text-description'>
-                            { t('welcomepage.appDescription',
-                                { app: APP_NAME }) }
+                        <p>
+                            <span className = 'header-text-description'>
+                              VoIPX Meet is a full featured conference server which allows you to do Video Conferences with screen sharing and chat.
+                            </span>
+                            <span className = 'header-text-description'>
+                              Please contact us at sales@voipxint.com to set up an account on our system.
+                            </span>
+                            <span className = 'header-text-description' >
+                              VoIPX is a Unified Communications Service Provider and offers a wide range of services, Please view our web page <a href = 'https://www.voipxpbx.com' style = {{ color: 'white' }}> www.voipxpbx.com </a> to view our Cloud PBX service offerrings.
+                            </span>
+                            <span className = 'header-text-description'>
+                              VoIPX provides advanced Cloud Phone Services to business customers anywhere in the United States
+                            </span>
                         </p>
                     </div>
                     <div id = 'enter_room'>
@@ -204,7 +213,7 @@ class WelcomePage extends AbstractWelcomePage {
                                     id = 'enter_room_field'
                                     onChange = { this._onRoomChange }
                                     pattern = { ROOM_NAME_VALIDATE_PATTERN_STR }
-                                    placeholder = { this.state.roomPlaceholder }
+                                    placeholder = 'Enter room name'
                                     ref = { this._setRoomInputRef }
                                     title = { t('welcomepage.roomNameAllowedChars') }
                                     type = 'text'
